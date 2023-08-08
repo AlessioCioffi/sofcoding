@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>{% block title%}{% endblock %}Alessio Cioffi</title>
+
+    <!-- Estilos y fuentes del template  -->
+    {% load static %}
+    <link href="{% static 'core/vendor/bootstrap/css/bootstrap.min.css'%}" rel="stylesheet">
+    <link href="{% static 'core/vendor/font-awesome/css/font-awesome.min.css'%}" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet'
+        type='text/css'>
+    <link
+        href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
+        rel='stylesheet' type='text/css'>
+    <link href="{% static 'core/css/clean-blog.min.css'%}" rel="stylesheet">
+    
+</head>
+
+<body>
+
+    <!-- Navegación -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="{% url "home" %}" style="margin-right: 0px;">Alessio Cioffi</a>
+            <a class="navbar-brand" style="font-size: 14px; color: #ce7b1d;">Portfolio</a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+                data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+                aria-label="Toggle navigation">
+                Menú
+                <i class="fa fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url "home" %}">Portada</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url "about-me" %}">Acerca de</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url "portfolio" %}">Portafolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url "contact" %}">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Cabecera -->
+    <header class="masthead" style="margin-bottom: 100px;">
+    </header>
+    <div class="container">
+    {% for project in progetti %}
+<!-- Proyecto -->
+<div class="row project">
+    
+    <div class="col-lg-3 col-md-4 offset-lg-1">
+        {% if project.image %}
+        <input type="checkbox" id="show-image-{{project.id}}" class="show-image" style="background-color: red;">
+        <label for="show-image-{{project.id}}">
+            <img class="img-fluid thumbnail" src="{{project.image.url}}" alt="">
+        </label>
+        <div class="overlay">
+            <label for="show-image-{{project.id}}">
+              <img src="{{project.image.url}}" alt="Imagen grande">
+            </label>
+        </div>
+        {% endif %}
+    </div>
+    
+    <div class="col-lg-7 col-md-8">
+        <h2 style="font-size: 26px; color:#ce7b1d;" class="section-heading title">{{project.title}}</h2>
+        
+        <p style="font-size: 18px; color:#e1f0f5;">{{project.description}}</p>
+        
+        {% if project.link %}
+        <p style="color: #7fcee6;">Repositorio en <a href="{{project.link}}" target="_blank" style="color: #7fcee6;">GitHub</a></p>
+        {% endif %}
+    </div>
+</div>
+{% endfor %}
+    </div>
+
+
+    {% if request.path != "/" %}
+    <hr>{%endif%}
+
+    <!-- Pié de página -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto">
+                    <ul class="list-inline text-center">
+                        <li class="list-inline-item">
+                            {% if Github %}
+                            <a href="{{Github}}">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"  style="color: #77cdd8;"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse" style="color: #2c133d;"></i>
+                                </span>
+                            </a>
+                            {% endif %}
+                        </li>
+                        <li class="list-inline-item">
+                            {% if Linkedin %}
+                            <a href="{{Linkedin}}">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x" style="color: #77cdd8;"></i>
+                                    <i class="fa fa-linkedin fa-stack-1x fa-inverse" style="color: #2c133d;"></i>
+                                </span>
+                            </a>
+                            {% endif %}
+                        </li>
+                        <li class="list-inline-item">
+                            {% if Whatsapp %}
+                            <a href="https://api.whatsapp.com/send?phone=00393334516476" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x" style="color: #77cdd8;"></i>
+                                    <i class="fa fa-whatsapp fa-stack-1x fa-inverse" style="color: #2c133d;"></i>
+                                </span>
+                            </a>
+                            {% endif %}
+                        </li>
+                        <li class="list-inline-item">
+                            {% if Gmail %}
+                            <a href="mailto:alessiocioffi.es@gmail.com" target="_blank">
+                              <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x" style="color: #77cdd8;"></i>
+                                 <i class="fa fa-envelope fa-stack-1x fa-inverse" style="color: #2c133d;"></i>
+                              </span>
+                             </a>
+                          {% endif %}
+                        </li>
+                    </ul>
+                    <p class="copyright text-muted">Copyright &copy; 2023 · Alessio Cioffi (Desarrollador Backend) </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap y Javascripts -->
+    <script src="{% static 'core/vendor/jquery/jquery.min.js'%}"></script>
+    <script src="{% static 'core/vendor/bootstrap/js/bootstrap.bundle.min.js'%}"></script>
+    <script src="{% static 'core/js/clean-blog.min.js'%}"></script>
+
+</body>
+
+</html>

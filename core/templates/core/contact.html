@@ -1,0 +1,44 @@
+{% extends 'core/base.html' %}
+
+{% block title%}Contact{% endblock %}
+
+{%block background %}{%load static %}{% static 'core/img/contact.jpg'%}{%endblock%}
+
+{%block headers%}
+<h1>Contacto</h1>
+
+{%endblock%}
+
+{% block content %}
+<div class="row">
+    <div class="col-lg-8 col-md-10 mx-auto">
+        <p style="font-size: 20px; color:#e1f0f5;">
+            <b style="font-size: 20px; color:#7fcee6;">Teléfono: </b>
+            <a href="tel:+34634602216" target="_blank" style="color:#e1f0f5;">+34634602216</a>
+        </p>
+        <p style="font-size: 20px; color:#e1f0f5;">
+            <b style="font-size: 20px; color:#7fcee6;">Email: </b>
+            <a href="mailto:alessiocioffi.es@gmail.com" target="_blank" style="color:#e1f0f5;">alessiocioffi.es@gmail.com</a>
+        </p>
+        <p>
+            <b style="font-size: 20px; color:#7fcee6;">Currículum: </b>
+            <a href="{% load static %}{% static 'core/img/curr.pdf' %}" style="color:#e1f0f5;" download>
+                <i class="fa fa-download" aria-hidden="true"></i> Descargar
+            </a>
+        </p>
+        
+
+        <br>
+        <p style="font-size: 18px; color:#e1f0f5;">
+            Con experiencia en Python, Django, Flask, HTML y SQL,
+             disfruto resolviendo problemas y creando codigo.<br>
+             Mi enfoque se centra en el diseño, desarrollo y creación 
+             de aplicaciones backend, arquitecturas robustas, API RESTful
+              y optimización de bases de datos.
+                Estoy emocionado por unirme a un equipo dinámico donde 
+                pueda aprender, crecer y contribuir con mi pasión por el
+                 desarrollo backend. </p>
+                 
+    </div>
+</div>
+{% endblock %}

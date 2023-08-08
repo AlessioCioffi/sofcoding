@@ -1,0 +1,51 @@
+{% extends 'core/base.html' %}
+
+{% block title%}Acerca de{% endblock %}
+
+{%block background %}{%load static %}{% static 'core/img/bio.jpg'%}{%endblock%}
+
+{%block headers%}
+<h1>Sobre mí</h1>
+<span class="subheading">Biografía</span>
+{%endblock%}
+
+
+{% block content %}
+<div class="row">
+    <div class="col-lg-3 col-md-4 offset-lg-1">
+        <img class="img-fluid avatar" src="{% static 'core/img/avatar.jpg' %}" alt="">
+    </div>
+    <div class="col-lg-7 col-md-8">
+        <h2 class="section-heading">Alessio Cioffi</h2>
+        <p style="font-size: 18px; color:#e1f0f5;">
+            Hola! Soy Alessio, un apasionado desarrollador backend.<br> Mi viaje en
+             el mundo de la programación comenzó mientras trabajaba en empresas
+              donde me involucraba en la manipulación de datos y actualizaciones 
+              de CRM desde la perspectiva de la experiencia de usuario.<br> Descubrí el fascinante 
+              potencial de los códigos para mejorar procesos y eficiencia empresarial.<br>
+               Desde entonces, mi pasión por la programación ha ido creciendo.
+          </p>
+          <p style="font-size: 18px; color:#e1f0f5;">
+            Me dedico a desarrollar soluciones backend sólidas y eficientes utilizando Python,
+             SQL, HTML y los frameworks Django y Flask.<br>He fortalecido mis habilidades a
+              través de programas de formación en línea, incluyendo bootcamps y cursos en
+              plataformas como Udemy.<br>
+               Estas experiencias me han permitido ampliar mi conocimiento en áreas clave
+                del desarrollo backend y mantenerme actualizado con las últimas
+                 tecnologías y prácticas de la industria.
+          </p>
+          <p style="font-size: 18px; color:#e1f0f5;">
+            En mi página web personal, puedes encontrar una muestra de mis proyectos
+             y habilidades técnicas. <br>Cada proyecto cuenta con un enlace directo 
+             a su repositorio correspondiente en GitHub, donde puedes explorar el
+              código fuente y tener una visión más detallada de las soluciones que he desarrollado.
+          </p>
+          <p style="font-size: 18px; color:#e1f0f5;">
+            Mi objetivo es formar parte de un equipo dinámico donde pueda seguir 
+            aprendiendo y creciendo como desarrollador backend. <br>Si estás 
+            interesado en colaborar o tienes alguna pregunta, no dudes en contactarme!
+          </p>
+        
+    </div>
+</div>
+{% endblock %}
